@@ -7,6 +7,9 @@ devDependencies:
   '@babylonjs/inspector':
     specifier: ^6.1.0
     version: 6.1.0(@babylonjs/core@6.1.0)(@babylonjs/gui-editor@6.1.0)(@babylonjs/gui@6.1.0)(@babylonjs/loaders@6.1.0)(@babylonjs/materials@6.1.0)(@babylonjs/serializers@6.1.0)(@types/react-dom@18.2.1)(@types/react@18.2.0)
+  '@babylonjs/loaders':
+    specifier: ^6.1.0
+    version: 6.1.0(@babylonjs/core@6.1.0)(babylonjs-gltf2interface@6.1.0)
   typescript:
     specifier: ^4.9.3
     version: 4.9.5
