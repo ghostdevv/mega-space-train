@@ -1,6 +1,4 @@
 import './app.css';
-import '@babylonjs/core/Debug/debugLayer';
-import '@babylonjs/inspector';
 import '@babylonjs/loaders';
 import HavokPhysics from '@babylonjs/havok';
 import { createSkybox } from './lib/skybox';
@@ -22,12 +20,10 @@ document.body.appendChild(canvas);
 const starCount = window.innerWidth < 900 ? 500 : 1000;
 const resolution = window.innerWidth < 900 ? 1 : 4;
 
-const { engine, scene } = setup(canvas);
+const { engine, scene, camera } = setup(canvas);
 
 const { skybox } = createSkybox(scene, resolution);
 const { starMesh } = createStars(scene, starCount);
-
-// scene.debugLayer.show();
 
 scene.registerBeforeRender(() => {
     // starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
@@ -35,7 +31,7 @@ scene.registerBeforeRender(() => {
 });
 
 const hk = new HavokPlugin(false, await HavokPhysics());
-scene.enablePhysics(new Vector3(0, -9.8, 0), hk);
+scene.enablePhysics(new Vector3(0, 0, 0), hk);
 
 const _light = new HemisphericLight('light', new Vector3(0, 1, 0), scene);
 
@@ -47,6 +43,10 @@ const sphere = MeshBuilder.CreateSphere(
     { diameter: 2, segments: 32 },
     scene,
 );
+
+sphere.position.y = 10;
+camera.setPosition(new Vector3(10, 10, 10));
+camera.setTarget(sphere);
 
 const ground = MeshBuilder.CreateGround(
     'ground',
@@ -68,9 +68,12 @@ const groundAggregate = new PhysicsAggregate(
     scene,
 );
 
-// setTimeout(async () => {
-//     await import('@babylonjs/inspector');
+// sphereAggregate.body.disablePreStep = false;
+// sphereAggregate.transformNode.position.set(0, 10, 0);
+// scene.onAfterRenderObservable.addOnce(() => {
+//     sphereAggregate.body.disablePreStep = true;
 // });
+sphereAggregate.body.applyImpulse(new Vector3(0, -2, 0), new Vector3(0, 10, 0));
 
 // const train = await SceneLoader.ImportMeshAsync(
 //     '',

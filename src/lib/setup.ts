@@ -21,8 +21,6 @@ export const setup = (canvas: HTMLCanvasElement) => {
         scene,
     );
 
-    camera.setPosition(new Vector3(0, 0, -200));
-
     camera.upperRadiusLimit = 350;
     camera.lowerRadiusLimit = 5;
 
@@ -43,5 +41,6 @@ export const setup = (canvas: HTMLCanvasElement) => {
     return {
         engine,
         scene,
+        camera,
     };
 };
