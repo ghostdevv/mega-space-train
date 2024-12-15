@@ -41,7 +41,6 @@ export async function createTrain(scene: Scene, camera: ArcRotateCamera) {
     );
 
     scene.executeWhenReady(() => {
-        console.log('read');
         physics.body.applyImpulse(
             new Vector3(0, 2_270_00, 0),
             new Vector3(0, 1, 0),
