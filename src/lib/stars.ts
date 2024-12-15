@@ -9,7 +9,7 @@ import {
     Scalar,
 } from '@babylonjs/core';
 
-export async function createStars(scene: Scene, amount: number) {
+export async function createStars(scene: Scene) {
     const glow = new GlowLayer('glow', scene, {
         mainTextureSamples: 4, // anti-aliasing
         mainTextureFixedSize: 1024,
@@ -21,7 +21,7 @@ export async function createStars(scene: Scene, amount: number) {
     const particles = new SolidParticleSystem('Stars', scene);
     const star = MeshBuilder.CreateSphere('sphere', {});
 
-    particles.addShape(star, amount);
+    particles.addShape(star, window.innerWidth < 900 ? 500 : 1000);
     star.dispose();
 
     const material = new StandardMaterial('starMaterial', scene);

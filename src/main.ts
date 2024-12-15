@@ -13,9 +13,6 @@ import {
 } from '@babylonjs/core';
 
 export async function run(canvas: HTMLCanvasElement) {
-    const starCount = window.innerWidth < 900 ? 500 : 1000;
-    const resolution = window.innerWidth < 900 ? 1 : 4;
-
     const engine = new Engine(canvas);
     const scene = new Scene(engine);
 
@@ -27,8 +24,8 @@ export async function run(canvas: HTMLCanvasElement) {
     const hk = new HavokPlugin(false, await HavokPhysics());
     scene.enablePhysics(new Vector3(0, 0, 0), hk);
 
-    await createSkybox(scene, resolution);
-    await createStars(scene, starCount);
+    await createSkybox(scene);
+    await createStars(scene);
     await createTrain(scene);
 
     console.log('Running');
