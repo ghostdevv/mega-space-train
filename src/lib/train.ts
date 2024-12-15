@@ -1,17 +1,13 @@
 import {
     loadAssetContainerAsync,
     type ArcRotateCamera,
-    HemisphericLight,
     PhysicsAggregate,
     PhysicsShapeType,
     TransformNode,
-    Vector3,
     Scene,
 } from '@babylonjs/core';
 
 export async function createTrain(scene: Scene, camera: ArcRotateCamera) {
-    new HemisphericLight('light', new Vector3(0, 0, 0), scene);
-
     const trainGLTF = await loadAssetContainerAsync(
         '/trains/steam-train.glb',
         scene,
