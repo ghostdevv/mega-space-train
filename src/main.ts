@@ -31,6 +31,9 @@ export async function run(canvas: HTMLCanvasElement) {
     await createStars(scene, starCount);
     await createTrain(scene);
 
+    console.log('Running');
+
+    scene.render();
     engine.runRenderLoop(() => scene.render());
     window.addEventListener('resize', () => engine.resize());
 }
