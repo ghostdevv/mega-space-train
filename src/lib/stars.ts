@@ -1,13 +1,23 @@
-import { Vector3, type Scene } from '@babylonjs/core';
 import {
-    Color3,
-    MeshBuilder,
-    Scalar,
     SolidParticleSystem,
     StandardMaterial,
+    MeshBuilder,
+    type Scene,
+    GlowLayer,
+    Vector3,
+    Color3,
+    Scalar,
 } from '@babylonjs/core';
 
 export async function createStars(scene: Scene, amount: number) {
+    const glow = new GlowLayer('glow', scene, {
+        mainTextureSamples: 4, // anti-aliasing
+        mainTextureFixedSize: 1024,
+        blurKernelSize: 256,
+    });
+
+    glow.intensity = 2;
+
     const particles = new SolidParticleSystem('Stars', scene);
     const star = MeshBuilder.CreateSphere('sphere', {});
 
