@@ -15,6 +15,7 @@
         "@babylonjs/inspector": "^7.40.2",
         "@babylonjs/loaders": "^7.40.2",
         "@biomejs/biome": "^1.9.4",
+        "gooey": "^0.3.2",
         "greset": "^2.0.0",
         "typescript": "^5.7.2",
         "vite": "^6.0.3"

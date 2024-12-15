@@ -23,6 +23,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
+      gooey:
+        specifier: ^0.3.2
+        version: 0.3.2
       greset:
         specifier: ^2.0.0
         version: 2.0.0
@@ -425,6 +428,9 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  gooey@0.3.2:
+    resolution: {integrity: sha512-DeGQpKGg/uCK0C44zB00Y/tcUoWq4w6r9bseYKBZ8lQ6jN71UgLjcfwJTFbEh8XtFru/uI+redw3g4EEfdCLgA==}
+
   greset@2.0.0:
     resolution: {integrity: sha512-oC3JpE4RUT3iMkkmu5uzWc0H8prJAN3Nv7kcxPlJUtWBQi16UpPm6dxseIeC+KKlevxoSBzuTQeFi71qAjWHxA==}
 
@@ -777,6 +783,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  gooey@0.3.2: {}
 
   greset@2.0.0:
     dependencies:
