@@ -11,6 +11,7 @@ import {
     Engine,
     Scene,
 } from '@babylonjs/core';
+import { createCamera } from './lib/camera';
 
 export async function run(canvas: HTMLCanvasElement) {
     const engine = new Engine(canvas);
@@ -24,9 +25,11 @@ export async function run(canvas: HTMLCanvasElement) {
     const hk = new HavokPlugin(false, await HavokPhysics());
     scene.enablePhysics(new Vector3(0, 0, 0), hk);
 
-    await createSkybox(scene);
+    const camera = await createCamera(scene);
+
+    await createSkybox(scene, camera);
     await createStars(scene);
-    await createTrain(scene);
+    await createTrain(scene, camera);
 
     console.log('Running');
 

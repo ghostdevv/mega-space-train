@@ -1,15 +1,15 @@
 import {
-    ArcRotateCamera,
+    type ArcRotateCamera,
     HemisphericLight,
-    MeshBuilder,
     PhysicsAggregate,
     PhysicsShapeType,
-    Scene,
+    MeshBuilder,
     SceneLoader,
     Vector3,
+    Scene,
 } from '@babylonjs/core';
 
-export async function createTrain(scene: Scene) {
+export async function createTrain(scene: Scene, camera: ArcRotateCamera) {
     new HemisphericLight('light', new Vector3(0, 0, 0), scene);
 
     // const trainGLTF = await SceneLoader.ImportMeshAsync(
@@ -31,6 +31,7 @@ export async function createTrain(scene: Scene) {
     );
 
     train.position.set(0, 0, 0);
+    camera.setTarget(train);
 
     const physics = new PhysicsAggregate(
         train,
@@ -38,20 +39,6 @@ export async function createTrain(scene: Scene) {
         { mass: 227000 },
         scene,
     );
-
-    const camera = new ArcRotateCamera(
-        'camera',
-        10,
-        10,
-        10,
-        new Vector3(10, 10, 10),
-        scene,
-    );
-
-    camera.upperRadiusLimit = 350;
-    camera.lowerRadiusLimit = 5;
-    camera.attachControl();
-    camera.setTarget(train);
 
     scene.executeWhenReady(() => {
         console.log('read');

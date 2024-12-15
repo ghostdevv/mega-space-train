@@ -56,9 +56,4 @@ export async function createStars(scene: Scene) {
 
     particles.initParticles();
     particles.setParticles();
-
-    return {
-        starMesh,
-        particles,
-    };
 }
