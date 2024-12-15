@@ -7,7 +7,7 @@ import {
     StandardMaterial,
 } from '@babylonjs/core';
 
-export const createStars = (scene: Scene, amount: number) => {
+export async function createStars(scene: Scene, amount: number) {
     const particles = new SolidParticleSystem('Stars', scene);
     const star = MeshBuilder.CreateSphere('sphere', {});
 
@@ -51,4 +51,4 @@ export const createStars = (scene: Scene, amount: number) => {
         starMesh,
         particles,
     };
-};
+}

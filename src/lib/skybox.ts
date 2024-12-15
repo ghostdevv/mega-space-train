@@ -1,7 +1,7 @@
 import { MeshBuilder, StandardMaterial, CubeTexture } from '@babylonjs/core';
 import type { Scene } from '@babylonjs/core';
 
-export const createSkybox = (scene: Scene, resolution: number) => {
+export async function createSkybox(scene: Scene, resolution: number) {
     const skybox = MeshBuilder.CreateBox('skyBox', { size: 1000 }, scene);
     const skyboxMaterial = new StandardMaterial('skyBox', scene);
 
@@ -18,4 +18,4 @@ export const createSkybox = (scene: Scene, resolution: number) => {
     return {
         skybox,
     };
-};
+}

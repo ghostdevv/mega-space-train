@@ -1,3 +1,4 @@
+import HavokPhysics from '@babylonjs/havok';
 import {
     Scene,
     Engine,
@@ -6,26 +7,14 @@ import {
     ArcRotateCamera,
     Color4,
     GlowLayer,
+    HavokPlugin,
 } from '@babylonjs/core';
 
-export const setup = (canvas: HTMLCanvasElement) => {
+export async function setup(canvas: HTMLCanvasElement) {
     const engine = new Engine(canvas);
     const scene = new Scene(engine);
 
-    const camera = new ArcRotateCamera(
-        'camera',
-        0,
-        0,
-        0,
-        new Vector3(0, 0, 0),
-        scene,
-    );
-
-    camera.upperRadiusLimit = 350;
-    camera.lowerRadiusLimit = 5;
-
     engine.resize();
-    camera.attachControl();
 
     scene.clearColor = new Color4(0, 0, 0, 0);
     scene.ambientColor = new Color3(50, 50, 50);
@@ -38,9 +27,11 @@ export const setup = (canvas: HTMLCanvasElement) => {
 
     glow.intensity = 2;
 
+    const hk = new HavokPlugin(false, await HavokPhysics());
+    scene.enablePhysics(new Vector3(0, 0, 0), hk);
+
     return {
         engine,
         scene,
-        camera,
     };
-};
+}
