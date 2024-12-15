@@ -10,6 +10,7 @@ export async function createCamera(scene: Scene) {
         scene,
     );
 
+    camera.maxZ = 10_000;
     camera.upperRadiusLimit = 350;
     camera.lowerRadiusLimit = 5;
     camera.attachControl();

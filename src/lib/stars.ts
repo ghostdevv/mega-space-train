@@ -26,6 +26,7 @@ export async function createStars(scene: Scene) {
 
     const material = new StandardMaterial('starMaterial', scene);
     const starMesh = particles.buildMesh();
+    particles.isAlwaysVisible = true;
 
     material.emissiveColor = new Color3(0.8, 0.8, 0.8);
 
