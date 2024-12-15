@@ -3,10 +3,10 @@ import { ArcRotateCamera, type Scene, Vector3 } from '@babylonjs/core';
 export async function createCamera(scene: Scene) {
     const camera = new ArcRotateCamera(
         'camera',
-        10,
-        10,
-        10,
-        new Vector3(10, 10, 10),
+        1,
+        1,
+        5,
+        new Vector3(-0.33, 0, 0),
         scene,
     );
 
