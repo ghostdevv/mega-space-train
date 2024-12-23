@@ -10,14 +10,14 @@
         "lint": "biome check"
     },
     "devDependencies": {
-        "@babylonjs/core": "^7.40.2",
+        "@babylonjs/core": "^7.41.1",
         "@babylonjs/havok": "^1.3.10",
-        "@babylonjs/inspector": "^7.40.2",
-        "@babylonjs/loaders": "^7.40.2",
+        "@babylonjs/inspector": "^7.41.1",
+        "@babylonjs/loaders": "^7.41.1",
         "@biomejs/biome": "^1.9.4",
         "gooey": "^0.3.2",
         "greset": "^2.0.0",
         "typescript": "^5.7.2",
-        "vite": "^6.0.3"
+        "vite": "^6.0.5"
     }
 }
