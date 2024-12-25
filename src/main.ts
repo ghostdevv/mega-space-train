@@ -5,6 +5,7 @@ import HavokPhysics from '@babylonjs/havok';
 import { createSkybox } from './lib/skybox';
 import { createTrain } from './lib/train';
 import { createStars } from './lib/stars';
+import { test } from './lib/test';
 
 export async function run(canvas: HTMLCanvasElement) {
     const engine = new Engine(canvas);
@@ -23,7 +24,8 @@ export async function run(canvas: HTMLCanvasElement) {
 
     await createSkybox(scene, camera);
     await createStars(scene);
-    await createTrain(scene, camera);
+    // await createTrain(scene, camera);
+    await test(scene, camera);
 
     engine.runRenderLoop(() => scene.render());
     window.addEventListener('resize', () => engine.resize());

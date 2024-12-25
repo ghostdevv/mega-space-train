@@ -1,10 +1,12 @@
 import {
+    PhysicsCharacterController,
     loadAssetContainerAsync,
     type ArcRotateCamera,
     PhysicsAggregate,
     PhysicsShapeType,
     TransformNode,
-    Scene,
+    type Scene,
+    Vector3,
 } from '@babylonjs/core';
 
 export async function createTrain(scene: Scene, camera: ArcRotateCamera) {
@@ -28,6 +30,12 @@ export async function createTrain(scene: Scene, camera: ArcRotateCamera) {
         train,
         PhysicsShapeType.BOX,
         { mass: 227000 },
+        scene,
+    );
+
+    const controller = new PhysicsCharacterController(
+        new Vector3(0, 0, 0),
+        physics,
         scene,
     );
 
